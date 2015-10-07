@@ -1,16 +1,13 @@
-# Procedural Vs Object-Oriented Ruby
+# Procedural vs. Object-Oriented Ruby
 
 ## Overview
 
-When I first learned about Object Orientation I was a pretty inexperienced and novice programmer. But I had built some complex financial models using procedural code and Object Orientation confused me. I found myself wondering "Why do I need all this architecture and structure - I can manage my own code."
+What's the difference? Well, in **procedural programming**, we have data and we have the procedures or instructions for operating on that data. In procedural programming, data and procedures, or instructions, are two separate things. In **object-oriented programming**, we have units of code that contain *both* data *and* instructions, such that an "object" operates on it's own data structure. 
 
-As my applications became more complex though, especially as I integrated more interfaces like rich web interfaces, I struggled to produce reliable and easy to modify code. And then Object Orientation clicked for me.
+Let's take a look at an example of this distinction using the tic tac toe game that we have become so familiar with. 
 
-An object can be defined as a piece of code that contains all the data and all the logic to accomplish a job. Whereas procedural programming uses procedures to operate on data structures, object-oriented programming bundles the two together so an "object" operates on its "own" data structure.
+## Procedural Programming: Tic Tac Toe
 
-Consider the displaying a tic tac toe board, checking the current player, and knowing the turn count of a game in Tic Tac Toe.
-
-Procedural:
 ```ruby
 board = Array.new(9, " ")
 
@@ -31,11 +28,17 @@ def display_board(board)
 end
 ```
 
-The thing you notice is that the state of the game, represented by the `board` array, is defined outside of any code that directly relates to Tic Tac Toe. We are basically using the proximity of the variable declaration to the methods as a way to say that these methods and data are related. That is a weak convention.
+In the code above, we have a `board` variable which points to an Array that represents our game board. Each of our methods *must* take the `board` array in as an argument and operate on that array. Here, our data structure, the `board` array, is operated on by each method. The data is *separate* from the behavior or operations. 
 
-You'll also notice that we constantly have to pass around `board` to every method. That is tedious and potentially very troublesome as any method can modify that variable and continue passing it around causing errors.
+In fact, the `board` array is so separate from the behaviors defined in our method that the only way indication that our data and our methods are related is the fact that the `board` array is defined in the same general area (i.e. in the same file, close to the lines where we define our methods) as our methods. 
 
-Ultimately, we don't want to manage our data manually through arguments and proximity, we want to teach our object to do that. Consider a Object Oriented implementation of the example from above.
+Another thing to note about our procedural approach to tic tac toe above is that we constantly have to pass around the `board` array to every method. This is tedious and potentially very troublesome as any method can modify that variable and continue passing it around, thus causing errors in our program. 
+
+**What's so bad about our procedural approach?** Ultimately, we don't want to manage our data through proximity and arguments, we want to teach our *objects* to manage their own data. What happens if we want to grow our tic tac toe game by adding more data or more behaviors? Our program gets messy, fast. The more we add different data and behaviors that are linked only by proximity or via arguments, the more confusing and buggy our program is likely to be. 
+
+Consider the following object-oriented implementation of our tic tac toe game:
+
+## Object-Oriented Tic Tac Toe: Tic Tac Toe
 
 ```ruby
 class TicTacToe
@@ -61,16 +64,20 @@ class TicTacToe
 end
 ```  
 
-Notice that every method became easier to understand. They no longer require arguments and instead can rely on the internal state of the object. That makes the code easier to maintain and to extend.
+**What's so great about our object-oriented approach?** Notice that every method became easier to understand. They no longer require arguments and instead can rely on the *internal state of the object*. What do we mean by that? Well, in our `TicTacToe` class, the board array is a *property of an instance of the TicTacToe game*. The `@board` instance variable, and the data that is stored in it, is attached to the instance of the game that is playing out an a given point in time. The *state* of the game, i.e. who is winning, what squares have been filled in, is expressed by the content of the `@board` variable, which itself is a property of the given instance of `TicTacToe`. 
 
-## Moving from Procedural to Object Oriented
+The methods of our `TicTacToe` class are also part of an object. When we called `TicTacToe.new` and create a new instance of the class (and start a new game), that instance, that tic tac toe object, has properties, like the `@board` variable, that describe it's state. That tic tac toe instance will also have methods that allow it to enact behaviors and operate on the data stored in it's properties. Our tic tac toe object has the whole package––attributes that contain data describing the state of the object *and* methods that enact behaviors on that data. 
 
-The things you want to look for when refactoring procedural code into object-oriented code are:
+Not only is our code now more organized and easier to read and understand, it is also accommodating of future growth and change. We can add more methods and more attributes to our `TicTacToe` class without over complicating our program. 
 
-1. Find any data the methods rely on. Does this data belong outside the object, to be passed in on initialization, or can the object instantiate this data itself?
+## Moving from Procedural to Object-Oriented
 
-2. Which of your methods are using arguments to pass data around scopes and could they instead just read the data from the internal state of the object?
+How do we refactor a procedural program into an object-oriented one? The things you want to look for when refactoring procedural code into object-oriented code are:
 
-3. What un-encapsulated procedural code is part of your program (random lines of code not contained in a method) and does that code belong as a behavior of your object?
+1. Find any data the methods rely on. Is this data related to the core functionality of our program? If so, think about where this data belongs. Should you pass it in as an argument to an `#initialize` method? Can the class you are writing create the data structure itself? 
 
-Anything that works procedurally can also work in an Object Oriented fashion and being able to move between these two styles of programming is crucial.
+2. Are your methods passing data around as arguments? Could this data instead be made into an instance variable?
+
+3. Is there any code that isn't contained in a method? Could that code be placed inside a method in your class and therefore become behavior that belongs to your object?
+
+Anything that works procedurally can also work in an object-oriented fashion and being able to move between these two styles of programming is crucial.
