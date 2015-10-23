@@ -30,7 +30,7 @@ end
 
 In the code above, we have a `board` variable which points to an Array that represents our game board. Each of our methods *must* take the `board` array in as an argument and operate on that array. Here, our data structure, the `board` array, is operated on by each method. The data is *separate* from the behavior or operations.
 
-In fact, the `board` array is so separate from the behaviors defined in our method that the only way indication that our data and our methods are related is the fact that the `board` array is defined in the same general area (i.e. in the same file, close to the lines where we define our methods) as our methods.
+In fact, the `board` array is so separate from the behaviors defined in our method that the only indication that our data and our methods are related is the fact that the `board` array is defined in the same general area (i.e. in the same file, close to the lines where we define our methods) as our methods.
 
 Another thing to note about our procedural approach to tic tac toe above is that we constantly have to pass around the `board` array to every method. This is tedious and potentially very troublesome as any method can modify that variable and continue passing it around, thus causing errors in our program.
 
