@@ -81,3 +81,5 @@ How do we refactor a procedural program into an object-oriented one? The things 
 3. Is there any code that isn't contained in a method? Could that code be placed inside a method in your class and therefore become behavior that belongs to your object?
 
 Anything that works procedurally can also work in an object-oriented fashion and being able to move between these two styles of programming is crucial.
+
+<a href='https://learn.co/lessons/procedural-vs-oo-ruby' data-visibility='hidden'>View this lesson on Learn.co</a>
