@@ -2,7 +2,7 @@
 
 ## Overview
 
-What's the difference? Well, in **procedural programming**, we have data and we have the procedures or instructions for operating on that data. In procedural programming, data and procedures, or instructions, are two separate things. In **object-oriented programming**, we have units of code that contain *both* data *and* instructions, such that an "object" operates on it's own data structure.
+What's the difference? Well, in **procedural programming**, we have data and we have the procedures or instructions for operating on that data. In procedural programming, data and procedures, or instructions, are two separate things. In **object-oriented programming**, we have units of code that contain *both* data *and* instructions, such that an "object" operates on its own data structure.
 
 Let's take a look at an example of this distinction using some methods you might find in a procedural implementation of Tic Tac Toe.
 
