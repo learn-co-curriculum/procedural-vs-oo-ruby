@@ -82,4 +82,4 @@ How do we refactor a procedural program into an object-oriented one? The things 
 
 Anything that works procedurally can also work in an object-oriented fashion and being able to move between these two styles of programming is crucial.
 
-<a href='https://learn.co/lessons/procedural-vs-oo-ruby' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/procedural-vs-oo-ruby' title='Procedural vs. Object-Oriented Ruby'>Procedural vs. Object-Oriented Ruby</a> on Learn.co and start learning to code for free.</p>
