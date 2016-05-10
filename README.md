@@ -66,7 +66,7 @@ end
 
 **What's so great about our object-oriented approach?** Notice that every method became easier to understand. They no longer require arguments and instead can rely on the *internal state of the object*. What do we mean by that? Well, in our `TicTacToe` class, the board array is a *property of an instance of the TicTacToe game*. The `@board` instance variable, and the data that is stored in it, is attached to the instance of the game that is playing out at a given point in time. The *state* of the game, i.e. who is winning, what squares have been filled in, is expressed by the content of the `@board` variable, which itself is a property of the given instance of `TicTacToe`.
 
-The methods of our `TicTacToe` class are also part of an object. When we called `TicTacToe.new` and create a new instance of the class (and start a new game), that instance, that tic tac toe object, has properties, like the `@board` variable, that describe its state. That tic tac toe instance will also have methods that allow it to enact behaviors and operate on the data stored in it's properties. Our tic tac toe object has the whole package––attributes that contain data describing the state of the object *and* methods that enact behaviors on that data.
+The methods of our `TicTacToe` class are also part of an object. When we called `TicTacToe.new` and create a new instance of the class (and start a new game), that instance, that tic tac toe object, has properties, like the `@board` variable, that describe its state. That tic tac toe instance will also have methods that allow it to enact behaviors and operate on the data stored in its properties. Our tic tac toe object has the whole package––attributes that contain data describing the state of the object *and* methods that enact behaviors on that data.
 
 Not only is our code now more organized and easier to read and understand, it is also accommodating of future growth and change. We can add more methods and more attributes to our `TicTacToe` class without over complicating our program.
 
@@ -83,3 +83,5 @@ How do we refactor a procedural program into an object-oriented one? The things 
 Anything that works procedurally can also work in an object-oriented fashion and being able to move between these two styles of programming is crucial.
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/procedural-vs-oo-ruby' title='Procedural vs. Object-Oriented Ruby'>Procedural vs. Object-Oriented Ruby</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/procedural-vs-oo-ruby'>Procedural vs Object Oriented Ruby</a> on Learn.co and start learning to code for free.</p>
