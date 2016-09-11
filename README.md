@@ -38,7 +38,7 @@ Another thing to note about our procedural approach to tic tac toe above is that
 
 Consider the following object-oriented implementation of our tic tac toe game:
 
-## Object-Oriented Tic Tac Toe: Tic Tac Toe
+## Object-Oriented Programming: Tic Tac Toe
 
 ```ruby
 class TicTacToe
